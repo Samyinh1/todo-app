@@ -1,19 +1,23 @@
-name : Test Project
+name: Test Project
 
 on:
+  push:
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test:
-    runs-on: windows-latest
-    container:
-      image: node:18
+    runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci 
+
+      - run: npm ci
       - run: npm test
-      - run: npm run build   
+      - run: npm run build
