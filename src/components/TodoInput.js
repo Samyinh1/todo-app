@@ -18,6 +18,7 @@ function TodoInput({ addTodo }) {
         placeholder="Enter a task"
         style={{ marginRight: 10 }}
       />
+      {
       <button type="submit">Add</button>
     </form>
   );
