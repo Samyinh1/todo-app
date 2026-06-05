@@ -37,5 +37,6 @@ pipeline {
                 bat 'docker run -d -p 3000:80 --name react-todo-app react-todo-app'
             }
         }
+        
     }
 }
