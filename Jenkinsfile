@@ -19,19 +19,16 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build React') {
             steps {
                 bat 'npm run build'
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Build completed successfully!'
-        }
-        failure {
-            echo 'Build failed!'
+        stage('Build Docker Image') {
+            steps {
+                bat 'docker build -t react-todo-app .'
+            }
         }
     }
 }
