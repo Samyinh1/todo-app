@@ -25,17 +25,17 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
-            steps {
-                bat 'docker build -t react-todo-app .'
-            }
-        }
+        // stage('Build Docker Image') {
+        //     steps {
+        //         bat 'docker build -t react-todo-app .'
+        //     }
+        // }
 
-        stage('Deploy Docker Container') {
-            steps {
-                bat 'docker rm -f react-todo-app || exit 0'
-                bat 'docker run -d -p 3000:80 --name react-todo-app react-todo-app'
-            }
-        }
+        // stage('Deploy Docker Container') {
+        //     steps {
+        //         bat 'docker rm -f react-todo-app || exit 0'
+        //         bat 'docker run -d -p 3000:80 --name react-todo-app react-todo-app'
+        //     }
+        // }
     }
 }
